@@ -4,7 +4,7 @@
 |------|----|-------|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|nickname|string|null: false|
+|nickname|string|null: false, index: true|
 ### Association
 - has_many :posts
 - has many :users_groups
@@ -15,8 +15,8 @@
 |------|----|-------|
 |text|text||
 |image|string||
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
@@ -33,8 +33,8 @@
 ## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
