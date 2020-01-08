@@ -4,18 +4,16 @@
       .top-items__name
         = current_user.name
       .top-items__icons
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('fa', 'edit', class: 'top-items__icons--edit')
         = link_to edit_user_path(current_user) do
           = icon('fa', 'cog', class: 'top-items__icons--cog')
   .side-bar__group_list
-    .group-pool
-      .group-pool__name team1
-      .group-pool__message newteam1
-    .group-pool
-      .group-pool__name team1
-      .group-pool__message newteam1
-    .group-pool
-      .group-pool__name team1
-      .group-pool__message newteam1
-  
+    - current_user.groups.each do |group|
+      .group
+        = link_to '#' do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
+
