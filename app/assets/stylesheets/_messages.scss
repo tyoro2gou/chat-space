@@ -54,12 +54,14 @@
     background-color: #2f3e51;
     height: calc(100vh - 100px);
 
-    .group-pool {
+    .group {
       color: #ffffff;
       font-weight: bold;
       height: 91px;
+      
 
       &__name {
+        color: #ffffff;
         font-size: 15px;
         padding-top: 20px;
         padding-left: 20px;
@@ -68,6 +70,7 @@
       }
 
       &__message {
+        color: #ffffff;
         font-size: 11px;
         padding-top: 5px;
         padding-left: 20px;
@@ -77,6 +80,10 @@
     }
   }
 
+}
+
+a {
+  text-decoration: none;
 }
 
 .chat-main {
