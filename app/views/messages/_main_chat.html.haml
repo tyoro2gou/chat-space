@@ -1,39 +1,16 @@
-
 .chat-main
 
   .chat-main__group-info
-    .group-box
-      .group-box__name
-        test
-      =link_to "#", class: "group-box__edit-btn" do
-        Edit
-    %ul.member-list 
-      Menber:
-      %li.member-frist 
-        takeshi
-      %li.member-second
-        mori
+    = render "header"
   .chat-main__message_list
-    .content
-      .content__box
-        .content__box--user-name
-          Tarou
-        .time
-          =Date.current.strftime('%Y/%m/%d/(%a) %H:%M:%S')
-      .content__message_box
-        aaaaaaaa
-      .content
-      .content__box
-        .content__box--user-name
-          Tarou
-        .time
-          =Date.current.strftime('%Y/%m/%d/(%a) %H:%M:%S')
-      .content__message_box
-        gggg
+    = render @messages
   .chat-main__message_form
     .form-box
-      %input{type: "text",class: "form-box__text", placeholder: "type a message"}
-      %label{class: "form-box__img"}
-        = icon('fa', 'image')
-        %input{type: "file", class: "form-box__img--file"}
-    %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fa', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+
