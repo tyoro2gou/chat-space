@@ -1,0 +1,10 @@
+.group-box
+  .group-box__name
+    = @group.name
+  =link_to edit_group_path(@group), class: "group-box__edit-btn" do
+    Edit
+%ul.member-list 
+  Member:
+  %li.member-frist 
+    - @group.users.each do |user|
+      = user.name
