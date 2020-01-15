@@ -86,7 +86,6 @@ $(function(){
   // zidoukousin
   var reloadMessages = function() {
     last_message_id = $('.content:last').data("message-id");
-    console.log(last_message_id)
     $.ajax({
       url: "api/messages",
       type: 'GET',
@@ -107,7 +106,7 @@ $(function(){
       }
     })
     .fail(function(){
-      console.log('error');
+      alert("error");
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)){
